@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+        border: 10px solid black;
+        width:100%;
+        }
+
+        #buttonname{
+        background-color: #4CAF50;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>welcome to our clg</h1>
+{% csrf_token %}
+<table>
+    <thead>
+        <th> name </th>
+        <th> age </th>
+        <th> comment </th>
+        <th> updateid </th>
+        <th> Delete </th>
+    </thead>
+    <tr>
+{% for v in view %}
+
+        <td>{{v.name}}</td>
+        <td>{{v.age}}</td>
+        <td>{{v.comment}}</td>
+        <td><a href='/updateid/{{v.id}}'> updateid </a> </td>
+        <td><a href='/delete/{{v.id}}'> delete </a> </td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/update"><button type="submit" id="buttonname">add member</button></a>
+</body>
+</html>
+
